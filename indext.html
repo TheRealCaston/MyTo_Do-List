@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='%23eee' d='M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm0 2h7v5h5v12H6zm2 8h8v2H8z'/%3E%3C/svg%3E" type="image/svg+xml">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>My To-Do List</h1>
+            <div class="view-toggle">
+                <button id="viewTasksBtn" class="button active">View Tasks</button>
+                <button id="viewFilesBtn" class="button">View Files</button>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="taskInput" placeholder="Add a new task...">
+            <input type="date" id="dueDateInput">
+            <select id="prioritySelect">
+                <option value="None">No Priority</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+            <select id="categorySelect">
+                <option value="">Select Category</option>
+                <option value="English">English</option>
+                <option value="Humanities">Humanities</option>
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <option value="AI">AI</option>
+                <option value="Mentorship">Mentorship</option>
+                <option value="Personal Projects">Personal Projects</option>
+                <option value="Finance">Finance</option>
+                <option value="Health">Health</option>
+                <option value="Chores">Chores</option>
+                <option value="Other">Other</option>
+            </select>
+            <input type="number" id="estimatedTimeInput" placeholder="Estimated Time (hours)" min="0.5" step="0.5">
+            <button id="addTaskBtn" class="button">Add Task</button>
+        </div>
+
+        <div class="controls">
+            <p id="taskCounter"></p>
+            <input type="text" id="searchInput" placeholder="Search tasks...">
+            <button id="clearCompletedBtn" class="button">Clear Completed</button>
+        </div>
+
+        <div class="filter-sort-controls">
+            <div class="sort-options">
+                <label for="sortBySelect">Sort by:</label>
+                <select id="sortBySelect">
+                    <option value="dueDate">Due Date</option>
+                    <option value="priority">Priority</option>
+                    <option value="category">Category</option>
+                    <option value="dateTime">Creation Date</option>
+                </select>
+                <select id="sortOrderSelect">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+            </div>
+            <div class="filter-options">
+                <label for="filterCompleted">Completed:</label>
+                <input type="checkbox" id="filterCompleted">
+            </div>
+        </div>
+
+        <ul id="taskList" class="task-list">
+            <!-- Tasks will be added here -->
+        </ul>
+
+        <button id="viewArchiveBtn" class="button">View Archived Tasks</button> 
+        <button id="viewActiveBtn" class="button" style="display: none;">View Active Tasks</button>
+
+        <p id="emptyMessage">Your to-do list is empty!</p>
+        <p id="localStorageWarning">Local storage is not available. Your tasks will not be saved.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
